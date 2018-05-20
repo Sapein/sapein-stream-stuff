@@ -1,7 +1,7 @@
 import urllib.request
-import listen
-import config
 import ssl
+import .listen
+import .config
 
 
 def subscribe():
@@ -52,6 +52,7 @@ def main():
     pass
 
 if __name__ == "__main__":
+    print("LAUNCH")
     try:
         subscribe()
         main()

@@ -1,0 +1,6 @@
+__pycache__/*
+*.sw[po]
+*.o
+*.dll
+*.a
+*.so

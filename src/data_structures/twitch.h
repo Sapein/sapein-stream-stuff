@@ -1,13 +1,22 @@
 #ifdef TWITCH_DATA
 #define TWITCH_DATA
-enum request_type {FOLLOW, BITS}
+#define FOLLOW 0
+#define BITS 1
 
-struct twitch_request {
-    int id;
-    enum request_type request;
-    char *user;
-    int value; /* Only really used for BITS */
+struct twitch_webhook;
+struct twitch_api;
+
+union twitch_request {
+    struct twitch_webhook webhook;
+    struct twitch_api api;
 }
 
-typedef struct twitch_request twitch_request;
+struct twitch_webhook {
+    unsigned long request_id;
+    int request;
+    unsigned long username_length;
+    char twitch_user[];
+}
+
+typedef union twitch_request twitch_message;
 #endif
